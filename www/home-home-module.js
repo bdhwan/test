@@ -57,7 +57,7 @@ var HomePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"ion-padding\">\n\n\n    <label>https://storage.giftistar.com/www/54e6c6a173d3e910dc5951dacf1c5badf2e6fc8d/android/pro-manifest.json</label><br>\n    <ion-button (click)=\"clickTest()\">Get</ion-button><br><br>\n\n    <label>http://storage.cache-front.iwinv.net/www/54e6c6a173d3e910dc5951dacf1c5badf2e6fc8d/android/pro-manifest.json</label><br>\n    <ion-button (click)=\"clickCdn()\">Get</ion-button><br><br>\n\n    <label>http://giftistarcdn.cache.iwinv.net/pro-manifest.json</label><br>\n    <ion-button (click)=\"clickFront()\">Get</ion-button><br><br>\n\n\n    <div>\n      const resp = await fetch(url);<br>\n\n      response: {{response}}\n    </div>\n\n  </div>\n</ion-content>"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"ion-padding\">\n\n    <div *ngFor=\"let item of urls\">\n      <label>{{item}}</label><br>\n      <ion-button (click)=\"clickUrl(item)\">Get</ion-button><br><br>\n    </div>\n\n\n    <div>\n      const resp = await fetch(url);<br>\n\n      response: {{response}}\n    </div>\n\n  </div>\n</ion-content>"
 
 /***/ }),
 
@@ -91,6 +91,10 @@ __webpack_require__.r(__webpack_exports__);
 var HomePage = /** @class */ (function () {
     function HomePage(httpClient) {
         this.httpClient = httpClient;
+        this.urls = [
+            'https://storage.giftistar.com/www/54e6c6a173d3e910dc5951dacf1c5badf2e6fc8d/android/pro-manifest.json',
+            'https://storage.cache-front.iwinv.net/www/54e6c6a173d3e910dc5951dacf1c5badf2e6fc8d/android/pro-manifest.json',
+        ];
     }
     HomePage.prototype.clickTest = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -135,6 +139,22 @@ var HomePage = /** @class */ (function () {
                 switch (_d.label) {
                     case 0:
                         url = 'http://giftistarcdn.cache.iwinv.net/pro-manifest.json';
+                        _a = this;
+                        _c = (_b = JSON).stringify;
+                        return [4 /*yield*/, this._fetch(url)];
+                    case 1:
+                        _a.response = _c.apply(_b, [_d.sent()]);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    HomePage.prototype.clickUrl = function (url) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _a, _b, _c;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_d) {
+                switch (_d.label) {
+                    case 0:
                         _a = this;
                         _c = (_b = JSON).stringify;
                         return [4 /*yield*/, this._fetch(url)];
