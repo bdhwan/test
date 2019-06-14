@@ -94,6 +94,7 @@ var HomePage = /** @class */ (function () {
         this.urls = [
             'https://storage.giftistar.com/www/54e6c6a173d3e910dc5951dacf1c5badf2e6fc8d/android/pro-manifest.json',
             'https://storage.cache-front.iwinv.net/www/54e6c6a173d3e910dc5951dacf1c5badf2e6fc8d/android/pro-manifest.json',
+            'https://hosajrucqueo1827438.cdn.ntruss.com/www/54e6c6a173d3e910dc5951dacf1c5badf2e6fc8d/android/pro-manifest.json',
         ];
     }
     HomePage.prototype.clickTest = function () {
